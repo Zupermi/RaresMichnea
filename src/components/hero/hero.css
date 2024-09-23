@@ -1,0 +1,11 @@
+video {
+    width: -webkit-fill-available;
+    height: 100vh;
+    object-fit: inherit;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    video {
+        height: 40vh;
+    }
+}

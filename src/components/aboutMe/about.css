@@ -1,0 +1,15 @@
+.about-wrapper {
+    display: flex;
+}
+
+img {
+    width: 500px;
+    height: 750px;
+    padding: 30px;
+}
+
+.headings {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+}
