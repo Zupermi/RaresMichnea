@@ -1,22 +1,40 @@
 import "./about.css";
+import {aboutMeParagrafs, misouneaMeaParagrafs} from "./content.js";
 import aboutImg from "../../assets/photos/about_section.jpg";
+import instagram from "../../assets/photos/instagram.png";
+import mail from "../../assets/photos/mail.png";
+import youtube from "../../assets/photos/youtube.png";
+import linkedIn from "../../assets/photos/linkedIn.png";
+import { useState } from "react";
+
 
 const AboutMe = () => {
+    const [showHeading, setShowHeading] = useState(true);
+    const aboutMeElements = aboutMeParagrafs.map((info)=>{return(<p className="text-paragraf" >{info.text}</p>)});
+    const misiuneaMeaElements = misouneaMeaParagrafs.map((info)=>{return(<p className="text-paragraf" >{info.text}</p>)});
+    const showAboutMeElements =(() => {
+        setShowHeading(true);
+    });
+    const showMisiuneaMeaElements =(() => {
+        setShowHeading(false);
+    });
     return (
         <div className="about-wrapper">
             <img src={aboutImg} alt="About Me" />
-            <div>
-                <div className="headings">
-                    <h2>Misiunea mea</h2>
-                    <h2>Despre mine</h2>
+            <div className="content-wrapper">
+                <div>
+                    <div className="headings">
+                        <h2 className="heading" onClick={showMisiuneaMeaElements}>Misiunea mea</h2>
+                        <h2 className="heading" onClick={showAboutMeElements}>Despre mine</h2>
+                    </div>
+                    { showHeading ? <div>{aboutMeElements}</div> : <div>{misiuneaMeaElements}</div>}
                 </div>
-                <p>Sunt videograf si activez de mai bine de 5 ani in domeniu.
-Absolvind o facultate in domeniul Imaginii de film, am obtinut o diplomä recunoscut de Universitatea Babes-Bolyai din Cluj-Napoca. Aventura mea in lumea video-ului nu s-a oprit aici, am completat o serie de cursuri ce m-au transformat intr-un videograf versatil.
-Am avut privilegiul sã lucrez la o varietate de proiecte captivante. De la productii pentru music video-uri care transformã versurile in imagini vibrante si pline de emotie, până la prezentãri corporate si animatii ce comunica mesaje puternice si memorabile, fiecare proiect reprezinta o poveste ce prinde viatã pe ecran.
-n lumea mea, fiecare cadru, fiecare sunet si fiecare nuant conteaza.
-Perfectionismul meu mã indeamna sã pun un accent deosebit pe detalii, pentru ca rezultatele sã fie mereu de cea mai inalt calitate. Colaborarea cu clientii mei este o bucurie, dearece imi ofer ocazia sã transform ideile lor in realitate si sã duc viziunea lor la nivelul următor.
-Sunt o persoană deschis, mereu in cutarea colaborarilor care sã aduca idei
-noi si provocãri interesante. Perfectionismul este o trăsătur esentiala pentru mine - pun mare pret pe detalii si mã asigur că fiecare cadru, fiecare sunet si fiecare nuant reflect perfectinea pe care o cautăm.</p>
+                <div className="icons-wrapper">
+                    <img className="icons-wrapper-img" src={instagram} alt="instagram"></img>
+                    <img className="icons-wrapper-img" src={mail} alt="mail"></img>
+                    <img className="icons-wrapper-img" src={youtube} alt="youtube"></img>
+                    <img className="icons-wrapper-img" src={linkedIn} alt="LinkedIn"></img>
+                </div>
             </div>
         </div>
     )
