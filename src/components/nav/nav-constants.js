@@ -1,11 +1,21 @@
-const dropDown =[
+import whatsappImg from '../../assets/photos/whatsapp.png';
+import mailImg from '../../assets/photos/mail.png';
+import linkedInImg from '../../assets/photos/linkedIn.png';
+
+const socialIcons = [
+    { img: whatsappImg, alt: 'WhatsApp' },
+    { img: mailImg, alt: 'Email' },
+    { img: linkedInImg, alt: 'LinkedIn' },
+  ];
+
+const menu =[
     {
         'name':'Acasa',
-        'link':'#'
+        'link':'#home'
     },
     {
         'name':'Despre mine',
-        'link':'#'
+        'link':'#about'
     },
     {
         'name':'Servicii',
@@ -43,4 +53,4 @@ const dropDown =[
     }
 ]
 
-export {dropDown}
+export { socialIcons, menu };

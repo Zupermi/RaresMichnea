@@ -1,13 +1,3 @@
-@font-face {
-    font-family: headingFont;
-    src: url("../../assets/fonts/Montserrat-Medium.otf");
-}
-@font-face {
-    font-family: paragrafFont;
-    src: url("../../assets/fonts/Montserrat-Medium.otf");
-}
-
-
 .about-wrapper {
     display: flex;
 }
@@ -16,6 +6,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-family: montserratMedium, sans-serif;
 }
 
 .about-wrapper img {
@@ -30,23 +21,18 @@
     flex-direction: row;
 }
 
-.heading{
+.heading {
     width: 50%;
     text-align: left;
     font-size: 40px;
-    font-family: headingFont;
 }
 
-.text-paragraf{
-    font-family: paragrafFont;
-}
-
-.icons-wrapper{
+.icons-wrapper {
     display: flex;
     flex-direction: row;    
 }
 
-.icons-wrapper img{
+.icons-wrapper img {
     width: 50px;
     height: 50px;
 }

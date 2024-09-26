@@ -19,7 +19,7 @@ const AboutMe = () => {
         setShowHeading(false);
     });
     return (
-        <div className="about-wrapper">
+        <div id="about" className="about-wrapper">
             <img src={aboutImg} alt="About Me" />
             <div className="content-wrapper">
                 <div>

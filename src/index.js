@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './index.css';
 import Footer from "./components/footer/Footer"
 import HeroZone from './components/hero/HeroZone';

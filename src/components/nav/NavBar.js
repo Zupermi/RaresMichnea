@@ -1,32 +1,57 @@
 import './nav.css';
-import whatsappImg from '../../assets/photos/whatsapp.png';
-import mailImg from '../../assets/photos/mail.png';
-import linkedInImg from '../../assets/photos/linkedIn.png';
-import {dropDown} from './nav-constants.js';
+import { socialIcons, menu } from './nav-constants.js';
 
-const socialIcons =[whatsappImg, mailImg, linkedInImg];
-
-function NavBar() {
-
-    const dropDownMenue = dropDown.map(dropdownButton => { 
-        return ( 
-            <div className='dropdown-button'>
-                <a href={dropdownButton.link}>{dropdownButton.name}</a>
-                {dropdownButton.content != null && <div className='dropdown-content'>
-                    {dropdownButton.content.map(dropdownItem => 
-                        <div className='dropdown-item'><a href={dropdownItem.link}>{dropdownItem.name}</a></div>)}
-                    </div>}
-    </div>)});
-    return (<nav className='nav-wrapper container row'>
-        <div className='nav-logo'>Rares Michnea Production</div>
-        <ul className='icons-wrapper'>
-        {socialIcons.map(socialIcon => <li><img src={socialIcon} alt='social media icon'/></li>)}
-        </ul>
-        <div className=''></div>
-        <div className='dropdown-wrapper'>
-            {dropDownMenue}
-        </div>
-    </nav>);
+const SocialIcon = ({ icon }) => {
+  return (
+    <li>
+      <img src={icon.img} alt={`${icon.alt} icon`} />
+    </li>
+  );
 }
- 
+
+const DropdownItem = ({ item }) => {
+    return (
+      <div className="dropdown-item">
+        <a href={item.link}>{item.name}</a>
+      </div>
+    );
+  }
+
+const Menu = ({ button }) => {
+  const { name, link, content } = button;
+
+  return (
+    <div className="menu-button">
+      <a href={link}>{name}</a>
+      {content && (
+        <div className="dropdown-content">
+          {content.map((item, index) => (
+            <DropdownItem key={index} item={item} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+const NavBar = () => {
+  return (
+    <nav className="nav-wrapper">
+      <div className="nav-logo">Rares Michnea Production</div>
+
+      <ul className="icons-wrapper">
+        {socialIcons.map((icon, index) => (
+          <SocialIcon key={index} icon={icon} />
+        ))}
+      </ul>
+
+      <div className="menu-wrapper">
+        {menu.map((button, index) => (
+          <Menu key={index} button={button} />
+        ))}
+      </div>
+    </nav>
+  );
+}
+
 export default NavBar;
